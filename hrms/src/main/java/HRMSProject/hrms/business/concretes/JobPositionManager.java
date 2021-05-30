@@ -44,9 +44,6 @@ public class JobPositionManager implements JobPositionService {
 		}
 		
 		return new ErrorResult(result.getMessage());
-		
-		
-		
 	}
 
 	@Override

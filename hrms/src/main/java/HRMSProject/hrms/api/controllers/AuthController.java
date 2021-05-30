@@ -1,5 +1,6 @@
 package HRMSProject.hrms.api.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ public class AuthController {
 	
 	private AuthService authService;
 
+	@Autowired
 	public AuthController(AuthService authService) {
 		super();
 		this.authService = authService;
