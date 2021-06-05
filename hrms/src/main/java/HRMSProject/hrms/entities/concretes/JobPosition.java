@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,7 @@ public class JobPosition {
 	private String positionName;
 	
 	@OneToMany()
+	@JsonIgnore
 	@JoinColumn(name="jobPosition")
 	private List<JobPosting> jobPostings;
 	

@@ -8,6 +8,7 @@ import HRMSProject.hrms.entities.concretes.City;
 
 public interface CityService {
 	DataResult<List<City>> getAll();
+	DataResult<City> getById(int id);
 	Result add(City city);
 	Result delete(int id);
 	Result update(City city);

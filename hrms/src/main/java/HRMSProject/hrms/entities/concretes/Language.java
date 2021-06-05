@@ -10,28 +10,27 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Entity
+@Table(name="languages")
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="cities")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobPostings"})
-public class City {
+public class Language {
 	@Id
 	@GeneratedValue
 	@Column(name="id")
-	private short id;
+	private int id;
 	
-	@Column(name="city_name")
-	private String cityName;
+	@Column(name="language_name")
+	private String languageName;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "city")
-	private List<JobPosting> jobPostings;
+	@OneToMany(mappedBy = "language")
+	private List<JobSeekerLanguage> jobSeekerLanguages;
+	
 }

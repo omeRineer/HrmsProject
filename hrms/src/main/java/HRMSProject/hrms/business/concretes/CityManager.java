@@ -47,4 +47,9 @@ public class CityManager implements CityService {
 		return new SuccessResult("Şehir güncellendi");
 	}
 
+	@Override
+	public DataResult<City> getById(int id) {
+		return new SuccessDataResult<City>(cityDao.findById(id).get());
+	}
+
 }

@@ -12,7 +12,6 @@ import HRMSProject.hrms.core.utilities.results.Result;
 import HRMSProject.hrms.core.utilities.results.SuccessResult;
 import HRMSProject.hrms.dataAccess.abstracts.EmployerDao;
 import HRMSProject.hrms.dataAccess.abstracts.JobSeekerDao;
-import HRMSProject.hrms.dataAccess.abstracts.UserDao;
 import HRMSProject.hrms.entities.abstracts.User;
 import HRMSProject.hrms.entities.concretes.Employer;
 import HRMSProject.hrms.entities.concretes.JobSeeker;

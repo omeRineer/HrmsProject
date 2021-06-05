@@ -10,49 +10,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import HRMSProject.hrms.business.abstracts.JobPositionService;
-import HRMSProject.hrms.entities.concretes.JobPosition;
+import HRMSProject.hrms.business.abstracts.CurriculumVitaeService;
+import HRMSProject.hrms.entities.concretes.CurriculumVitae;
 
 @RestController
-@RequestMapping("/api/jobpositions")
-public class JobPositionsController {
-	
-	private JobPositionService jobPositionService;
+@RequestMapping("/api/curriculumvitae")
+public class CurriculumVitaesController {
+
+	private CurriculumVitaeService curriculumVitaeService;
 
 	@Autowired
-	public JobPositionsController(JobPositionService jobPositionService) {
+	public CurriculumVitaesController(CurriculumVitaeService curriculumVitaeService) {
 		super();
-		this.jobPositionService = jobPositionService;
+		this.curriculumVitaeService = curriculumVitaeService;
 	}
 	
 	@Transactional
 	@GetMapping("/getall")
 	public ResponseEntity<?> getAll(){
-		return ResponseEntity.ok(jobPositionService.getAll());
+		return ResponseEntity.ok(curriculumVitaeService.getAll());
 	}
 	
 	@Transactional
 	@GetMapping("/getbyid/{id}")
 	public ResponseEntity<?> getById(@PathVariable int id){
-		return ResponseEntity.ok(jobPositionService.getById(id));
+		return ResponseEntity.ok(curriculumVitaeService.getById(id));
 	}
 	
 	@Transactional
 	@PostMapping("/add")
-	public ResponseEntity<?> add(@RequestBody JobPosition jobPosition){
-		return ResponseEntity.ok(jobPositionService.add(jobPosition));
+	public ResponseEntity<?> add(@RequestBody CurriculumVitae curriculumVitae){
+		return ResponseEntity.ok(curriculumVitaeService.add(curriculumVitae));
 	}
 	
 	@Transactional
 	@PostMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable int id){
-		return ResponseEntity.ok(jobPositionService.delete(id));
+		return ResponseEntity.ok(curriculumVitaeService.delete(id));
 	}
 	
 	@Transactional
 	@PostMapping("/update")
-	public ResponseEntity<?> update(@RequestBody JobPosition jobPosition){
-		return ResponseEntity.ok(jobPositionService.update(jobPosition));
+	public ResponseEntity<?> update(@RequestBody CurriculumVitae curriculumVitae){
+		return ResponseEntity.ok(curriculumVitaeService.update(curriculumVitae));
 	}
-
+	
 }

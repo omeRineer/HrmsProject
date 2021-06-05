@@ -19,12 +19,12 @@ import HRMSProject.hrms.entities.concretes.JobPosting;
 
 @RestController
 @RequestMapping("/api/jobposting")
-public class JobPostingController {
+public class JobPostingsController {
 	
 	private JobPostingService jobPostingService;
 
 	@Autowired
-	public JobPostingController(JobPostingService jobPostingService) {
+	public JobPostingsController(JobPostingService jobPostingService) {
 		super();
 		this.jobPostingService = jobPostingService;
 	}

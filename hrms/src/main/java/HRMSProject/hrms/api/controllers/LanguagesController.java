@@ -10,49 +10,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import HRMSProject.hrms.business.abstracts.JobPositionService;
-import HRMSProject.hrms.entities.concretes.JobPosition;
+import HRMSProject.hrms.business.abstracts.LanguageService;
+import HRMSProject.hrms.entities.concretes.Language;
 
 @RestController
-@RequestMapping("/api/jobpositions")
-public class JobPositionsController {
+@RequestMapping("/api/language")
+public class LanguagesController {
 	
-	private JobPositionService jobPositionService;
+	private LanguageService languageService;
 
 	@Autowired
-	public JobPositionsController(JobPositionService jobPositionService) {
+	public LanguagesController(LanguageService languageService) {
 		super();
-		this.jobPositionService = jobPositionService;
+		this.languageService = languageService;
 	}
 	
 	@Transactional
 	@GetMapping("/getall")
 	public ResponseEntity<?> getAll(){
-		return ResponseEntity.ok(jobPositionService.getAll());
+		return ResponseEntity.ok(languageService.getAll());
 	}
 	
 	@Transactional
 	@GetMapping("/getbyid/{id}")
 	public ResponseEntity<?> getById(@PathVariable int id){
-		return ResponseEntity.ok(jobPositionService.getById(id));
+		return ResponseEntity.ok(languageService.getById(id));
 	}
 	
 	@Transactional
 	@PostMapping("/add")
-	public ResponseEntity<?> add(@RequestBody JobPosition jobPosition){
-		return ResponseEntity.ok(jobPositionService.add(jobPosition));
+	public ResponseEntity<?> add(@RequestBody Language language){
+		return ResponseEntity.ok(languageService.add(language));
 	}
 	
 	@Transactional
 	@PostMapping("/delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable int id){
-		return ResponseEntity.ok(jobPositionService.delete(id));
+		return ResponseEntity.ok(languageService.delete(id));
 	}
 	
 	@Transactional
 	@PostMapping("/update")
-	public ResponseEntity<?> update(@RequestBody JobPosition jobPosition){
-		return ResponseEntity.ok(jobPositionService.update(jobPosition));
+	public ResponseEntity<?> update(@RequestBody Language language){
+		return ResponseEntity.ok(languageService.update(language));
 	}
-
 }

@@ -5,33 +5,33 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Entity
+@Table(name="programming_languages")
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name="cities")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobPostings"})
-public class City {
-	@Id
-	@GeneratedValue
-	@Column(name="id")
-	private short id;
+public class ProgrammingLanguage {
 	
-	@Column(name="city_name")
-	private String cityName;
+	@Id
+	@GeneratedValue(strategy =GenerationType.IDENTITY )
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="programming_language_name")
+	private String programmingLanguageName;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "city")
-	private List<JobPosting> jobPostings;
+	@OneToMany(mappedBy = "programmingLanguage")
+	private List<JobSeekerProgrammingLanguage> jobSeekerProgrammingLanguages;
 }

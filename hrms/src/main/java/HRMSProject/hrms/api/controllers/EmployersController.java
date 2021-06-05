@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import HRMSProject.hrms.business.abstracts.EmployerService;
 import HRMSProject.hrms.core.utilities.results.DataResult;
 import HRMSProject.hrms.core.utilities.results.SuccessDataResult;
-import HRMSProject.hrms.core.utilities.results.SuccessResult;
 import HRMSProject.hrms.entities.concretes.Employer;
 
 @RestController
 @RequestMapping("/api/employers")
-public class EmployerController {
+public class EmployersController {
 	
 	private EmployerService employerService;
 
 	@Autowired
-	public EmployerController(EmployerService employerService) {
+	public EmployersController(EmployerService employerService) {
 		super();
 		this.employerService = employerService;
 	}
