@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -41,8 +42,8 @@ public class JobSeekerImagesController {
 	
 	@Transactional
 	@PostMapping("/add")
-	public ResponseEntity<?> add(@RequestParam MultipartFile file,@RequestBody JobSeekerImage jobSeekerImage){
-		return ResponseEntity.ok(jobSeekerImageService.add(file,jobSeekerImage));
+	public ResponseEntity<?> add(@RequestParam(value = "file") MultipartFile file,@RequestParam(value = "id") int id){
+		return ResponseEntity.ok(jobSeekerImageService.add(file,id));
 	}
 	
 	@Transactional

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -60,5 +61,9 @@ public class JobSeeker extends User{
 	@JsonIgnore
 	@OneToMany(mappedBy = "jobSeeker")
 	private List<CurriculumVitae> curriculumVitaes;
+	
+	@OneToOne(mappedBy = "jobSeeker")
+	@PrimaryKeyJoinColumn
+	private JobSeekerImage jobSeekerImage;
 
 }

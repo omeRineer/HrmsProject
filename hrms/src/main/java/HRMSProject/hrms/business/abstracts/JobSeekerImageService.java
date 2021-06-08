@@ -11,7 +11,7 @@ import HRMSProject.hrms.entities.concretes.JobSeekerImage;
 public interface JobSeekerImageService {
 	DataResult<List<JobSeekerImage>> getAll();
 	DataResult<JobSeekerImage> getById(int id);
-	Result add(MultipartFile file,JobSeekerImage jobSeekerImage);
+	Result add(MultipartFile file,int id);
 	Result delete(int jobSeekerImageId);
 	Result update(JobSeekerImage jobSeekerImage);
 }
